@@ -2,6 +2,9 @@
   "name": "inotebook-backend",
   "version": "1.0.0",
   "description": "inotebook - Your notebook on the cloud",
+  "engines": {
+    "node": "v18.7.0"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
