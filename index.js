@@ -8,7 +8,7 @@ connectToMongo();
 
 const app = express()
 const port = process.env.PORT || 3001;
-
+const newport ="https://fast-atoll-05903.herokuapp.com/"+port;
 app.use(cors())
 app.use(express.json())
 //available routes
@@ -20,6 +20,6 @@ if(process.env.NODE_ENV == "production"){
   app.use(express.static("client/build"));
 }
 
-app.listen(port, () => {
-  console.log(`iNotebook backend listening on port ${port}`)
+app.listen(newport, () => {
+  console.log(`iNotebook backend listening on port ${newport}`)
 })
