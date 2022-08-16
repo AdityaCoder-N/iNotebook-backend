@@ -54,6 +54,10 @@ router.post('/createuser',
 
         const authToken =  jwt.sign(data, JWT_SECRET);
         success=true;
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Credentials", "true");
+        res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+        res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
         
     }catch(error){
         console.error(error.message);
@@ -93,7 +97,10 @@ router.post('/login',
         }
         const authToken =  jwt.sign(data, JWT_SECRET);
         success=true;;
-        
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Credentials", "true");
+        res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+        res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
 
     } catch(error){
         console.error(error.message);
