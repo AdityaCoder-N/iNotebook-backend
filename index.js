@@ -11,7 +11,7 @@ const port = process.env.PORT || 3001;
 
 app.use(cors(
   {
-    origin:"https://main--monumental-kelpie-6b72a2.netlify.app/login",
+    origin:"*",
   }
 ))
 app.use(express.json())
