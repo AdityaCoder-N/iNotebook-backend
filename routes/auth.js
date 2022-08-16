@@ -51,7 +51,6 @@ router.post('/createuser',
                 id : user.id
             }
         }
-
         const authToken =  jwt.sign(data, JWT_SECRET);
         success=true;
         res.status(200).json({authToken});
@@ -73,9 +72,8 @@ router.post('/login',
     if (!errors.isEmpty()) {
       return res.status(400).json({ success,errors: errors.array() });
     }
-
     const {email,password} = req.body;
-    
+
     try {
         let user = await User.findOne({email : email});
         if(!user){
@@ -86,7 +84,6 @@ router.post('/login',
         if(!password){
             return res.status(400).json({success,error:"Wrong Email or Password"});
         }
-
         const data = {
             user : {
                 id : user.id
@@ -117,6 +114,5 @@ router.post('/getuser',fetchuser,async (req,res)=>{
     }
 
 })
-
 
 module.exports = router;
