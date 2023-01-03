@@ -44,13 +44,14 @@ router.post('/createuser',
             name: req.body.name,
             password: secPassword,
             email : req.body.email
-        })
+        });
 
         const data = {
             user : {
                 id : user.id
             }
         }
+        
         const authToken =  jwt.sign(data, JWT_SECRET);
         success=true;
         res.status(200).json({success,authToken});
@@ -76,12 +77,14 @@ router.post('/login',
 
     try {
         let user = await User.findOne({email : email});
+        
         if(!user){
             return res.status(400).json({success,error:"User with this email does not exist"});
         }   
         
         const passwordCompare = await bcrypt.compare(password,user.password);
-        if(!password){
+
+        if(!passwordCompare){
             return res.status(400).json({success,error:"Wrong Email or Password"});
         }
         const data = {
